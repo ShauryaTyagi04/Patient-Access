@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DatabaseHelper" Collapsed="true">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAABAAAAA=</HashCode>
+      <FileName>DatabaseHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.masterpages.Dashboard" Collapsed="true">
+    <Position X="11.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAggAMAAAAAIAAAAAABIhAAAAAAAQAABAYAAAA=</HashCode>
+      <FileName>masterpages\Dashboard.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.masterpages.HealthInfo" Collapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>masterpages\HealthInfo.master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.masterpages.Home" Collapsed="true">
+    <Position X="4.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAEAABIAAAAAAAAAAAAAJAACA=</HashCode>
+      <FileName>masterpages\Home.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.dashboard.appointments" Collapsed="true">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAgAAAAAAIAAAAAAQECIAAAE=</HashCode>
+      <FileName>pages\dashboard\appointments.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.dashboard.appointmentSuccess" Collapsed="true">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\dashboard\appointmentSuccess.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.dashboard.dashboardHome" Collapsed="true">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAIAAgAAEAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\dashboard\dashboardHome.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.dashboard.doctors" Collapsed="true">
+    <Position X="7.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\dashboard\doctors.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.dashboard.manualAppointments" Collapsed="true">
+    <Position X="7.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAICAAACAAAAAQAAAAAgIAQAAAAIAQCA=</HashCode>
+      <FileName>pages\dashboard\manualAppointments.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.dashboard.profile" Collapsed="true">
+    <Position X="4.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABABAAAAJEgYAmEAAIoAgAIMgAAgAQAQABCAIAAKA=</HashCode>
+      <FileName>pages\dashboard\profile.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.dashboard.upcomingAppointments" Collapsed="true">
+    <Position X="11.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAASAAEAAQAAAAAAAQgAAAAAAAAAAAAAQBCIAAAA=</HashCode>
+      <FileName>pages\dashboard\upcomingAppointments.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.healthInformation.allergies" Collapsed="true">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\healthInformation\allergies.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.healthInformation.chronicConditions" Collapsed="true">
+    <Position X="9.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\healthInformation\chronicConditions.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.healthInformation.immunizationHistory" Collapsed="true">
+    <Position X="6" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIAAIA=</HashCode>
+      <FileName>pages\healthInformation\immunizationHistory.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.healthInformation.patientFamilyHistory" Collapsed="true">
+    <Position X="9.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\healthInformation\patientFamilyHistory.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.healthInformation.patientInformation" Collapsed="true">
+    <Position X="11.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAACABAAYAgABAAgAAAAMAAAAAAAABACAIAAAA=</HashCode>
+      <FileName>pages\healthInformation\patientInformation.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.home.home" Collapsed="true">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\home\home.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.home.register" Collapsed="true">
+    <Position X="6" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQBAAAABEAYAuBAAAoEBAIMAAAoAQAAIACgIAAAA=</HashCode>
+      <FileName>pages\home\register.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.home.signIn" Collapsed="true">
+    <Position X="7.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAAAAAAAoAAACAAAAAIAAAAAAAAAAAgIIAAA=</HashCode>
+      <FileName>pages\home\signIn.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientAccess.pages.home.successfullRegistration" Collapsed="true">
+    <Position X="9.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>pages\home\successfullRegistration.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

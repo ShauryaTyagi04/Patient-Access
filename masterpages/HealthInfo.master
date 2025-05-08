@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Dashboard.Master" AutoEventWireup="true" CodeBehind="HealthInfo.master.cs" Inherits="PatientAccess.masterpages.HealthInfo" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <nav class="row-md-2 bg-white d-flex flex-column container-fluid-blur">
+    <ul class="nav flex-row">
+        <li class="nav-item mb-3">
+            <a class="nav-link <%: GetActiveClass("patientInformation") %>" 
+            href='<%= ResolveClientUrl(Page.GetRouteUrl("PatientInformation", null)) %>'>
+                <i class="fas fa-hospital-user me-2"></i> Patient Information
+            </a>
+        </li>
+        <li class="nav-item mb-3">
+            <a class="nav-link <%: GetActiveClass("allergies") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("Allergies", null)) %>'>
+                <i class="fas fa-hand-dots me-2"></i> Allergies
+            </a>
+        </li>
+        <li class="nav-item mb-3">
+            <a class="nav-link <%: GetActiveClass("chronicConditions") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("ChronicConditions", null)) %>'>
+                <i class="fas fa-user-injured me-2"></i> Chronic Conditions
+            </a>
+        </li>
+        <li class="nav-item mb-3">
+            <a class="nav-link <%: GetActiveClass("immunizationHistory") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("ImmunizationHistory", null)) %>'>
+                <i class="fas fa-syringe me-2"></i> Immunization History
+            </a>
+        </li>
+        <li class="nav-item mb-3">
+            <a class="nav-link <%: GetActiveClass("patientFamilyHistory") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("PatientFamilyHistory", null)) %>'>
+                <i class="fas fa-people-roof me-2"></i> Patient Family History
+            </a>
+        </li>
+    </ul>
+</nav>
+    <main class="p-4 bg-light container-fluid-blur">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+</main>
+</asp:Content>

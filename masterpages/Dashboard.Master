@@ -1,0 +1,187 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.master.cs" Inherits="PatientAccess.masterpages.Dashboard" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <%--bootstrap css--%>
+        <link href="..\assets\bootstrap\css\bootstrap.min.css" rel="stylesheet" />
+        <%--fontawesome css--%>
+        <link href="..\assets\fontawesome\css\all.css" rel="stylesheet" />
+        <%-- Custom Theme CSS --%>
+        <link href="..\assets\theme\theme.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-2.2.2/b-3.2.2/sl-3.0.0/datatables.min.css"/>
+
+ 
+        <script src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-2.2.2/b-3.2.2/sl-3.0.0/datatables.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            function updateNotificationCount() {
+                $.ajax({
+                    type: "POST",
+                    url: "/NotificationService.aspx/GetUnreadMessageCount",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        document.getElementById('<%= bookings.ClientID %>').textContent = response.d;
+                    }
+                });
+            }
+
+            setInterval(updateNotificationCount, 3000); // Refresh every 3 seconds
+            window.onload = updateNotificationCount;
+        </script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%-- Top Navbar --%>
+        <nav class="navbar navbar-expand-lg bg-white sticky-top container-fluid-blur">
+            <div class="container-fluid">
+                <!-- Brand Section -->
+                <a class="navbar-brand d-flex align-items-center" href='<%= ResolveClientUrl(Page.GetRouteUrl("DashboardHome", null)) %>'>
+                    <i class="fas icon-primary fa-heart me-2 fa-lg"></i>
+                    <h3 class="text-secondary">Patient</h3>
+                    <h3 class="text-primary"> Access</h3>
+                </a>
+
+                <!-- Right Section -->
+                <div class="d-flex align-items-center">
+                    <div class="border border-2 rounded py-1 px-2 me-3" style="border-color: #DC60A2 !important; color:#DC60A2 !important; background-color: #DC60A21A">
+                        <asp:Label ID="clinicName" runat="server"  />
+                    </div>
+                    <!-- Bell Icon with Notification Badge -->
+                    <a href='<%= ResolveClientUrl(Page.GetRouteUrl("Messages", null)) %>'>
+                        <div class="position-relative me-3">
+                            <i class="fas fa-bell fa-lg text-dark"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                <asp:Label runat="server" ID="bookings"/>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Divider -->
+                    <div class="vr mx-3"></div>
+
+                    <!-- Circle Avatar -->
+                    <div class="me-3">
+                        <a href='<%= ResolveClientUrl(Page.GetRouteUrl("Profile", null)) %>'>
+                            <img id="profileImage" runat="server" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                        </a>
+                    </div>
+
+                    <!-- Logout Icon -->
+                    <div class="logout-container text-center">
+                        <asp:LinkButton runat="server" ID="logoutLink" CssClass="text-dark" OnClientClick="showLogoutModal(); return false;">
+                            <i class="fas fa-sign-out-alt fa-lg"></i>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to logout?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <asp:Button runat="server" ID="confirmLogoutBtn" Text="Logout" CssClass="btn btn-error" OnClick="ConfirmLogout" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <%-- Main Layout with Vertical Navbar --%>
+        <div class="container-fluid">
+            <div class="row">
+                <%-- Vertical Navbar --%>
+                <nav class="col-md-2 bg-white py-4 d-flex flex-column container-fluid-blur">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-3">
+                            <a class="nav-link <%: GetActiveClass("dashboard") %>" 
+                            href='<%= ResolveClientUrl(Page.GetRouteUrl("DashboardHome", null)) %>'>
+                                <i class="fas fa-home me-2"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3">
+                            <a class="nav-link <%: GetActiveClass("appointments") %>" 
+                             href='<%= ResolveClientUrl(Page.GetRouteUrl("Appointments", null)) %>'>
+                                <i class="fas fa-calendar-check me-2"></i> Appointments
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3">
+                            <a class="nav-link <%: GetActiveClass("patientInformation") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("PatientInformation", null)) %>'>
+                                <i class="fas fa-file-medical me-2"></i> Medical Records
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3">
+                            <a class="nav-link <%: GetActiveClass("profile") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("Profile", null)) %>'>
+                                <i class="fas fa-user me-2"></i> Profile
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3">
+                            <a class="nav-link <%: GetActiveClass("messages") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("Messages", null)) %>'>
+                                <i class="fas fa-envelope me-2"></i> Messages
+                            </a>
+                        </li>
+                        <li class="nav-item mb-3">
+                            <a class="nav-link <%: GetActiveClass("doctors") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("Doctors", null)) %>'>
+                                <i class="fas fa-envelope me-2"></i> Meet your doctors
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <%: GetActiveClass("adminMessages") %>" 
+               href='<%= ResolveClientUrl(Page.GetRouteUrl("AdminMessages", null)) %>'>
+                                <i class="fas fa-envelope me-2"></i> Admin Messages
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+                <%-- Main Content Area --%>
+                <main class="col-md-10 bg-light px-0">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
+            </div>
+        </div>
+
+        <%-- Footer --%>
+        <footer class="footer bg-tertiary text-white py-4">
+            <div class="container text-center">
+                <p class="mb-0">
+                    &copy; 2025 Patient Access. All rights reserved. | Empowering your health, every step of the way.
+                </p>
+            </div>
+        </footer>    
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            <script>
+                function showLogoutModal() {
+                    const logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+                    logoutModal.show();
+                }
+</script>
+</body>
+</html>
