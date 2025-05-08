@@ -38,7 +38,7 @@
         <h1>🎉 Welcome to <span class="text-primary">Patient</span> <span class="text-secondary">Access!</span></h1>
         <p>Your registration was successful.</p>
         <p>Start exploring your account now.</p>
-        <a href="signIn.aspx" class="btn btn-primary btn-lg mx-">Go to Sign In</a>
+        <a href="<%= ResolveClientUrl(Page.GetRouteUrl("Login", null)) %>" class="btn btn-primary btn-lg mx-">Go to Sign In</a>
     </div>
 
     <script>
